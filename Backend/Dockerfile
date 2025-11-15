@@ -1,14 +1,17 @@
-# Use official OpenJDK image
-FROM eclipse-temurin:21-jdk-jammy
-
-# Set working directory
+# ----------- Build Stage -----------
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copy Maven build files
-COPY target/*.jar app.jar
+COPY pom.xml .
+COPY src ./src
 
-# Expose port 8080
+RUN mvn -q -e -DskipTests clean package
+
+# ----------- Run Stage -----------
+FROM eclipse-temurin:21-jdk-jammy
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
-
-# Run the JAR
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
