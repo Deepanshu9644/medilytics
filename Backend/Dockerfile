@@ -5,7 +5,7 @@ FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 
 # Copy Maven build files
-COPY target/Medilytics-0.0.1-SNAPSHOT.jar app.jar
+COPY target/*.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
