@@ -33,6 +33,8 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 interface DashboardProps {
   user: { email: string; name: string };
@@ -58,13 +60,22 @@ export function Dashboard({ user, onNavigate, onLogout }: DashboardProps) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const statsRes = await axios.get(
-          `http://localhost:8080/api/activity/stats?username=${user.email}`
-        );
+        // const statsRes = await axios.get(
+        //   `http://localhost:8080/api/activity/stats?username=${user.email}`
+        // );
 
-        const activityRes = await axios.get(
-          `http://localhost:8080/api/activity/recent?username=${user.email}`
-        );
+        // const activityRes = await axios.get(
+        //   `http://localhost:8080/api/activity/recent?username=${user.email}`
+        // );
+
+       const statsRes = await axios.get(
+  `${BASE_URL}/api/activity/stats?username=${user.email}`
+);
+
+const activityRes = await axios.get(
+  `${BASE_URL}/api/activity/recent?username=${user.email}`
+);
+        
 
         setStats(statsRes.data);
         setActivity(activityRes.data);
