@@ -19,6 +19,8 @@ interface MedicineAnalysisProps {
   onBack: () => void;
 }
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 export function MedicineAnalysis({ onBack }: MedicineAnalysisProps) {
   const [file, setFile] = useState<File | null>(null);
   const [medicineName, setMedicineName] = useState('');
@@ -41,7 +43,7 @@ const handleAnalyze = async () => {
     
 
     const token = localStorage.getItem("token");
-    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/medicine/decode`, {
+    const response = await fetch(`${BASE_URL}/api/medicine/decode`, {
      method: "POST",
      body: formData,
      headers: {
