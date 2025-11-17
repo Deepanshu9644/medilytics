@@ -14,7 +14,8 @@ interface LoginPageProps {
   onLogin: (user: { email: string; name: string }) => void;
 }
 
-const BASE_URL = "http://localhost:8080/api/auth"; // ✅ your backend base URL
+//const BASE_URL = "http://localhost:8080/api/auth"; // ✅ your backend base URL
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export function LoginPage({ onLogin }: LoginPageProps) {
   const [isRegister, setIsRegister] = useState(false);
