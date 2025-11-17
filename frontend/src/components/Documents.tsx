@@ -36,7 +36,8 @@ interface DocumentsProps {
   onBack: () => void;
 }
 
-const API = "http://localhost:8080/api/documents";
+//const API = "http://localhost:8080/api/documents";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 export function Documents({ onBack }: DocumentsProps) {
@@ -55,7 +56,7 @@ const fetchDocuments = async () => {
     const token = localStorage.getItem("token");
 
 
-const res = await axios.get(`${API}`, {
+const res = await axios.get(`${BASE_URL}`, {
   headers: {
     Authorization: `Bearer ${token}`,
   },
@@ -92,7 +93,7 @@ const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
   formData.append("file", file);
 
   try {
-    const res = await axios.post(`${API}/upload`, formData, {
+    const res = await axios.post(`${BASE_URL}/upload`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,   // ✅ CRITICAL
@@ -116,7 +117,7 @@ const handleDelete = async (id: string) => {
   try {
     const token = localStorage.getItem("token");
 
-    await axios.delete(`${API}/${id}`, {
+    await axios.delete(`${BASE_URL}/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -141,7 +142,7 @@ const handleDownload = async (doc: Document) => {
     const token = localStorage.getItem("token");
 
 
-const res = await axios.get(`${API}/${doc.id}/view`, {
+const res = await axios.get(`${BASE_URL}/${doc.id}/view`, {
   responseType: "blob",
   headers: { Authorization: `Bearer ${token}` },
 });
@@ -163,7 +164,7 @@ const handleView = async (doc: Document) => {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.get(`${API}/${doc.id}/view`, {
+    const res = await axios.get(`${BASE_URL}/${doc.id}/view`, {
       responseType: "blob",
       headers: {
         Authorization: `Bearer ${token}`
