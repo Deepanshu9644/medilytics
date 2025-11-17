@@ -17,6 +17,8 @@ interface PrescriptionAnalysisProps {
   onBack: () => void;
 }
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 export function PrescriptionAnalysis({ onBack }: PrescriptionAnalysisProps) {
   const [file, setFile] = useState<File | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
@@ -39,9 +41,13 @@ const handleAnalyze = async () => {
 
     // Detect file type
     const isImage = file.type.startsWith("image/");
+    // const endpoint = isImage
+    //   ? "http://localhost:8080/api/prescription/image-analyze"
+    //   : "http://localhost:8080/api/prescription/analyze";
     const endpoint = isImage
-      ? "http://localhost:8080/api/prescription/image-analyze"
-      : "http://localhost:8080/api/prescription/analyze";
+  ? `${BASE_URL}/api/prescription/image-analyze`
+  : `${BASE_URL}/api/prescription/analyze`;
+
 
     // JWT token
     const token = localStorage.getItem("token");
