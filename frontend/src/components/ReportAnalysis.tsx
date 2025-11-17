@@ -18,6 +18,8 @@ interface ReportAnalysisProps {
   onBack: () => void;
 }
 
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+
 export function ReportAnalysis({ onBack }: ReportAnalysisProps) {
   const [file, setFile] = useState<File | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
@@ -38,9 +40,12 @@ const handleAnalyze = async () => {
 
     // Detect if the file is an image or PDF
     const isImage = file.type.startsWith("image/");
+    // const endpoint = isImage
+    //   ? "http://localhost:8080/api/report/image-analyze"
+    //   : "http://localhost:8080/api/report/analyze";
     const endpoint = isImage
-      ? "http://localhost:8080/api/report/image-analyze"
-      : "http://localhost:8080/api/report/analyze";
+      ? `${BASE_URL}/api/report/image-analyze`
+      : `${BASE_URL}/api/report/analyze`;
 
     // ✅ Get the JWT token from localStorage (after login)
     const token = localStorage.getItem("token");
