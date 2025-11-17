@@ -53,7 +53,7 @@ public class FirebaseInitializer {
             if (FirebaseApp.getApps().isEmpty()) {
 
                 // Read Firebase JSON from environment variable
-                String firebaseJson = System.getenv("FIREBASE_CONFIG_PATH");
+                String firebaseJson = System.getenv("FIREBASE_CONFIG");
 
                 if (firebaseJson == null || firebaseJson.isEmpty()) {
                     System.out.println("❌ FIREBASE_CONFIG environment variable is missing!");
