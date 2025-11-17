@@ -39,7 +39,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
           return;
         }
 
-        const registerResponse = await axios.post(`${BASE_URL}/register`, {
+        const registerResponse = await axios.post(`${BASE_URL}/api/auth/register`, {
           username: email.split('@')[0],
           email,
           password,
@@ -49,7 +49,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         setIsRegister(false);
       } else {
         // 🔑 LOGIN REQUEST
-        const loginResponse = await axios.post(`${BASE_URL}/login`, {
+        const loginResponse = await axios.post(`${BASE_URL}/api/auth/login`, {
           username: email.split('@')[0],
           password,
         });
@@ -84,7 +84,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 console.log("FIREBASE_TOKEN:", token);
 
     // Send token to backend
-    const response = await axios.post("http://localhost:8080/api/auth/google-login", { token });
+    const response = await axios.post(`${BASE_URL}/api/auth/google-login`, { token });
 
     console.log("Backend verified user:", response.data);
     localStorage.setItem("token", token);
