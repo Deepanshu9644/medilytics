@@ -57,8 +57,8 @@ public class PrescriptionController {
             }
 
             String extractedText = PdfTextExtractor.extractText(file);
-            String filePath = UPLOAD_DIR + file.getOriginalFilename();
-            file.transferTo(new File(filePath));
+            // String filePath = UPLOAD_DIR + file.getOriginalFilename();
+            // file.transferTo(new File(filePath));
 
             String aiResponse = geminiService.analyzePrescription(extractedText, language);
             String summary = postProcessorService.cleanSummary(aiResponse);
@@ -91,7 +91,8 @@ public class PrescriptionController {
             // File savedFile = new File(filePath);
             // file.transferTo(savedFile);
 
-            String extractedText = ocrService.extractTextFromImage(savedFile);
+            // String extractedText = ocrService.extractTextFromImage(savedFile);
+            String extractedText = ocrService.extractTextFromImage(file);
             String aiResponse = geminiService.analyzePrescription(extractedText, language);
             String summary = postProcessorService.cleanSummary(aiResponse);
 
