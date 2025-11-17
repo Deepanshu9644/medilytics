@@ -87,9 +87,9 @@ public class PrescriptionController {
                 return ResponseEntity.badRequest().body("File is empty");
             }
 
-            String filePath = UPLOAD_DIR + file.getOriginalFilename();
-            File savedFile = new File(filePath);
-            file.transferTo(savedFile);
+            // String filePath = UPLOAD_DIR + file.getOriginalFilename();
+            // File savedFile = new File(filePath);
+            // file.transferTo(savedFile);
 
             String extractedText = ocrService.extractTextFromImage(savedFile);
             String aiResponse = geminiService.analyzePrescription(extractedText, language);
