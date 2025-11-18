@@ -20,6 +20,7 @@ public class CorsConfig {
                         ) // Allow React app origin
                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Allowed methods
                        .allowedHeaders("*") // Allow all headers
+                       .maxAge(3600)
                        .allowCredentials(true); // Allow credentials (if you need it)
            }
        };
