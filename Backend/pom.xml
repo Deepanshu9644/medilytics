@@ -60,7 +60,7 @@
 				<artifactId>tess4j</artifactId>
 				<version>5.11.0</version>
 			</dependency>
-
+             
 			<!-- Optional: Logging -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -182,6 +182,14 @@
 	</dependencies>
 
 	<build>
+		 <resources>
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>tessdata/**</include>
+            </includes>
+        </resource>
+    </resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
