@@ -127,7 +127,8 @@ public class OCRService {
     public String extractTextFromImage(File imageFile) {
         ITesseract tesseract = new Tesseract();
         // ✅ Correct data path (point to the folder containing 'eng.traineddata')
-        tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
+       // tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
+        tesseract.setDatapath("/usr/share/tesseract-ocr/");
         tesseract.setLanguage("eng");
 
         try {
@@ -170,8 +171,9 @@ public class OCRService {
     public String extractMedicineName(MultipartFile image) {
         ITesseract tesseract = new Tesseract();
         // ✅ Correct data path here too
-        tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
+       // tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
        // tesseract.setLanguage("eng");
+        tesseract.setDatapath("/usr/share/tesseract-ocr/");
         try {
             String text = tesseract.doOCR(ImageIO.read(image.getInputStream()));
             return text.replaceAll("[^a-zA-Z0-9 \\n]", "").trim();
