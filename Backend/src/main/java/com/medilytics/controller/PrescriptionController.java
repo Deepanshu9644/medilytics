@@ -88,12 +88,12 @@ public class PrescriptionController {
                 return ResponseEntity.badRequest().body("File is empty");
             }
 
-            // String filePath = UPLOAD_DIR + file.getOriginalFilename();
-            // File savedFile = new File(filePath);
-            // file.transferTo(savedFile);
-            File savedFile = new File(UPLOAD_DIR + System.currentTimeMillis() + "_" + file.getOriginalFilename());
-file.transferTo(savedFile);
-String filePath = savedFile.getAbsolutePath();
+            String filePath = UPLOAD_DIR + file.getOriginalFilename();
+            File savedFile = new File(filePath);
+            file.transferTo(savedFile);
+//             File savedFile = new File(UPLOAD_DIR + System.currentTimeMillis() + "_" + file.getOriginalFilename());
+// file.transferTo(savedFile);
+// String filePath = savedFile.getAbsolutePath();
 
              String extractedText = ocrService.extractTextFromImage(savedFile);
             //String extractedText = ocrService.extractTextFromImage(file);
