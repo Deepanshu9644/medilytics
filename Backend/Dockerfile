@@ -31,29 +31,51 @@ COPY src ./src
 RUN mvn -q -e -DskipTests clean package
 
 
-# ---------------- RUN STAGE ----------------
+# # ---------------- RUN STAGE ----------------
+# FROM eclipse-temurin:21-jdk-jammy
+# WORKDIR /app
+
+# # Install Tesseract + English language pack
+# RUN apt-get update && apt-get install -y \
+#     tesseract-ocr \
+#     tesseract-ocr-eng \
+#     wget && \
+#     apt-get clean
+
+# # Ensure tessdata directory exists
+# RUN mkdir -p /usr/share/tesseract-ocr/tessdata/
+
+# # Download English trained data (backup to guarantee availability)
+# RUN wget -O /usr/share/tesseract-ocr/tessdata/eng.traineddata \
+#     https://github.com/tesseract-ocr/tessdata/raw/main/eng.traineddata
+
+# # Set Tesseract data path
+# ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/tessdata/
+
+# # Copy built JAR
+# COPY --from=build /app/target/*.jar app.jar
+
+# EXPOSE 8080
+# ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
 FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /app
 
-# Install Tesseract + English language pack
+# Install Tesseract and English language pack
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     tesseract-ocr-eng \
-    wget && \
-    apt-get clean
+    && apt-get clean
 
-# Ensure tessdata directory exists
-RUN mkdir -p /usr/share/tesseract-ocr/tessdata/
-
-# Download English trained data (backup to guarantee availability)
-RUN wget -O /usr/share/tesseract-ocr/tessdata/eng.traineddata \
-    https://github.com/tesseract-ocr/tessdata/raw/main/eng.traineddata
-
-# Set Tesseract data path
-ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/tessdata/
+# Tesseract stores its data in: /usr/share/tesseract-ocr/4.00/tessdata/
+ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata/
 
 # Copy built JAR
 COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+
