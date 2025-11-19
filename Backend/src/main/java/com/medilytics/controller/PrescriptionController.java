@@ -19,7 +19,8 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/prescription")
 public class PrescriptionController {
 
-    private static final String UPLOAD_DIR = "C:/uploads/prescriptions/";
+   // private static final String UPLOAD_DIR = "C:/uploads/prescriptions/";
+      private static final String UPLOAD_DIR = "/uploads/";
 
     @Autowired
     private OCRService ocrService;
