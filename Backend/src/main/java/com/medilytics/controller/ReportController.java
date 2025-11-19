@@ -19,7 +19,7 @@ import java.util.Optional;
 @RequestMapping("/api/report")
 public class ReportController {
 
-    private static final String UPLOAD_DIR = "C:/uploads/";
+    private static final String UPLOAD_DIR = "/uploads/";
 
     @Autowired
     private ReportService reportService;
@@ -80,10 +80,14 @@ public class ReportController {
                 return ResponseEntity.badRequest().body("File is empty");
             }
 
+            File savedFile = new File(UPLOAD_DIR + System.currentTimeMillis() + "_" + file.getOriginalFilename());
+file.transferTo(savedFile);
+String filePath = savedFile.getAbsolutePath();
+
             // Save the image to disk
-            String filePath = UPLOAD_DIR + file.getOriginalFilename();
-            File savedFile = new File(filePath);
-            file.transferTo(savedFile);
+            // String filePath = UPLOAD_DIR + file.getOriginalFilename();
+            // File savedFile = new File(filePath);
+            //file.transferTo(savedFile);
 
             // Extract text using OCR
             String extractedText = ocrService.extractTextFromImage(savedFile); // OCR
