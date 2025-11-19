@@ -128,8 +128,10 @@ public class OCRService {
         ITesseract tesseract = new Tesseract();
         // ✅ Correct data path (point to the folder containing 'eng.traineddata')
        // tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
-        tesseract.setDatapath("/usr/share/tesseract-ocr/");
+        // tesseract.setDatapath("/usr/share/tesseract-ocr/");
        // tesseract.setLanguage("eng");
+        tesseract.setDatapath("/usr/share/tesseract-ocr/4.00/tessdata/");
+        tesseract.setLanguage("eng");
 
         try {
             BufferedImage original = ImageIO.read(imageFile);
@@ -173,7 +175,9 @@ public class OCRService {
         // ✅ Correct data path here too
        // tesseract.setDatapath("C:\\Program Files\\Tesseract-OCR\\tessdata");
        // tesseract.setLanguage("eng");
-        tesseract.setDatapath("/usr/share/tesseract-ocr/");
+        // tesseract.setDatapath("/usr/share/tesseract-ocr/");
+        tesseract.setDatapath("/usr/share/tesseract-ocr/4.00/tessdata/");
+        tesseract.setLanguage("eng");
         try {
             String text = tesseract.doOCR(ImageIO.read(image.getInputStream()));
             return text.replaceAll("[^a-zA-Z0-9 \\n]", "").trim();
