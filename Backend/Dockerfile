@@ -78,7 +78,9 @@ ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata/
 COPY --from=build /app/target/*.jar app.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENV JAVA_OPTS="-Xms512m -Xmx1024m"
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+# ENTRYPOINT ["java", "-jar", "app.jar"]
 
 
 
