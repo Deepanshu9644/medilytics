@@ -56,7 +56,7 @@ const fetchDocuments = async () => {
     const token = localStorage.getItem("token");
 
 
-const res = await axios.get(`${BASE_URL}`, {
+const res = await axios.get(`${BASE_URL}/api/documents`, {
   headers: {
     Authorization: `Bearer ${token}`,
   },
