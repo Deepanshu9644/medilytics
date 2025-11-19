@@ -170,7 +170,7 @@ import java.util.List;
 public class DocumentService {
 
     private final DocumentRepository repo;
-    private final String UPLOAD_DIR = "uploaded-documents";
+    private final String UPLOAD_DIR = "/upload";
 
     // Upload file for a specific user
     public DocumentEntity upload(MultipartFile file, String userId) throws Exception {
