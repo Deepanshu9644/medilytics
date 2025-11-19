@@ -93,7 +93,7 @@ const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
   formData.append("file", file);
 
   try {
-    const res = await axios.post(`${BASE_URL}/upload`, formData, {
+    const res = await axios.post(`${BASE_URL}/api/documents/upload`, formData, {
       headers: {
         "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,   // ✅ CRITICAL
@@ -117,7 +117,7 @@ const handleDelete = async (id: string) => {
   try {
     const token = localStorage.getItem("token");
 
-    await axios.delete(`${BASE_URL}/${id}`, {
+    await axios.delete(`${BASE_URL}/api/documents/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -142,7 +142,7 @@ const handleDownload = async (doc: Document) => {
     const token = localStorage.getItem("token");
 
 
-const res = await axios.get(`${BASE_URL}/${doc.id}/view`, {
+const res = await axios.get(`${BASE_URL}/api/documents/${doc.id}/view`, {
   responseType: "blob",
   headers: { Authorization: `Bearer ${token}` },
 });
@@ -164,7 +164,7 @@ const handleView = async (doc: Document) => {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await axios.get(`${BASE_URL}/${doc.id}/view`, {
+    const res = await axios.get(`${BASE_URL}/api/documents/${doc.id}/view`, {
       responseType: "blob",
       headers: {
         Authorization: `Bearer ${token}`
