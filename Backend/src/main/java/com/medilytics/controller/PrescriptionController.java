@@ -91,9 +91,12 @@ public class PrescriptionController {
             // String filePath = UPLOAD_DIR + file.getOriginalFilename();
             // File savedFile = new File(filePath);
             // file.transferTo(savedFile);
+            File savedFile = new File(UPLOAD_DIR + System.currentTimeMillis() + "_" + file.getOriginalFilename());
+file.transferTo(savedFile);
+String filePath = savedFile.getAbsolutePath();
 
-             //String extractedText = ocrService.extractTextFromImage(savedFile);
-            String extractedText = ocrService.extractTextFromImage(file);
+             String extractedText = ocrService.extractTextFromImage(savedFile);
+            //String extractedText = ocrService.extractTextFromImage(file);
             String aiResponse = geminiService.analyzePrescription(extractedText, language);
             String summary = postProcessorService.cleanSummary(aiResponse);
 
