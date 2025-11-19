@@ -68,6 +68,9 @@ RUN apt-get update && apt-get install -y \
     tesseract-ocr-eng \
     && apt-get clean
 
+    # Create uploads directory
+RUN mkdir -p /uploads
+
 # Tesseract stores its data in: /usr/share/tesseract-ocr/4.00/tessdata/
 ENV TESSDATA_PREFIX=/usr/share/tesseract-ocr/4.00/tessdata/
 
