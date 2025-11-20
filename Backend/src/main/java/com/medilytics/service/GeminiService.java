@@ -249,12 +249,27 @@ Extracted Prescription Text:
 
     return sections;
 }
-
 private String cleanValue(String text) {
+
+    // Step 1: split inline '*' into new bullet lines
+    text = text.replaceAll("\\s*\\*\\s*", "\n• ");
+
+    // Step 2: remove accidental leading bullets
+    text = text.replaceAll("^[\\*\\-•]+\\s*", "• ");
+
+    // Step 3: clean repeated spaces/newlines
     return text
-            .replaceAll("\\s+", " ") // remove extra spacing
+            .replaceAll("\\n+", "\n")
+            .replaceAll("\\s+", " ")
             .trim();
 }
+
+    
+// private String cleanValue(String text) {
+//     return text
+//             .replaceAll("\\s+", " ") // remove extra spacing
+//             .trim();
+// }
 
 
     // private Map<String, String> parseSections(String aiResponse) {
