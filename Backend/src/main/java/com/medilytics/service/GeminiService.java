@@ -203,26 +203,82 @@ Extracted Prescription Text:
 
     private Map<String, String> parseSections(String aiResponse) {
 
+    Map<String, String> sections = new LinkedHashMap<>();
 
-        Map<String, String> sections = new LinkedHashMap<>();
+    aiResponse = aiResponse
+            .replace("**", "")            // remove markdown bold
+            .replace("\t", " ")
+            .replace("\r", " ")
+            .trim();
 
-        // Clean response
-        aiResponse = aiResponse.trim();
+    // Split into lines
+    String[] lines = aiResponse.split("\n");
 
-        // Split based on the section headers
-        String[] parts = aiResponse.split("\\*\\*");
+    String currentKey = null;
+    StringBuilder currentValue = new StringBuilder();
 
-        for (int i = 1; i < parts.length; i += 2) {  // Start from index 1 because split will lead to empty string at index 0
-            String title = parts[i].replace(":", "").trim();
-            String content = parts[i + 1].trim();
+    for (String line : lines) {
 
-            content = content.replaceAll("\\s*\\*\\s*", "\n* ");
+        line = line.trim();
 
-            sections.put(title, content);
+        if (line.isEmpty()) continue;
+
+        // Detect headings like: medicineName:
+        if (line.matches("^[a-zA-Z]+Name:|^[a-zA-Z]+:$")) {
+
+            // Save previous section
+            if (currentKey != null) {
+                sections.put(currentKey, cleanValue(currentValue.toString()));
+            }
+
+            currentKey = line.replace(":", "").trim();
+            currentValue = new StringBuilder();
         }
+        else {
+            // Remove leading "*", "-", or bullet symbols
+            line = line.replaceFirst("^[\\*\\-•]+\\s*", "");
 
-        return sections;
+            currentValue.append(line).append("\n");
+        }
     }
+
+    // Save last section
+    if (currentKey != null) {
+        sections.put(currentKey, cleanValue(currentValue.toString()));
+    }
+
+    return sections;
+}
+
+private String cleanValue(String text) {
+    return text
+            .replaceAll("\\s+", " ") // remove extra spacing
+            .trim();
+}
+
+
+    // private Map<String, String> parseSections(String aiResponse) {
+
+
+    //     Map<String, String> sections = new LinkedHashMap<>();
+
+    //     // Clean response
+    //     aiResponse = aiResponse.trim();
+
+    //     // Split based on the section headers
+    //     String[] parts = aiResponse.split("\\*\\*");
+
+    //     for (int i = 1; i < parts.length; i += 2) {  // Start from index 1 because split will lead to empty string at index 0
+    //         String title = parts[i].replace(":", "").trim();
+    //         String content = parts[i + 1].trim();
+
+    //         content = content.replaceAll("\\s*\\*\\s*", "\n* ");
+
+    //         sections.put(title, content);
+    //     }
+
+    //     return sections;
+    // }
 
     public String analyzeReport(String extractedText, String language) throws IOException {
 
