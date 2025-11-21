@@ -138,7 +138,8 @@ export function MedilyticsLanding({ onGetStarted }: MedilyticsLandingProps) {
           <div className="absolute top-1/2 left-1/4 w-16 h-16 border-4 border-cyan-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }} />
         </div>
 
-        <div className="container mx-auto px-6">
+        
+<div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
