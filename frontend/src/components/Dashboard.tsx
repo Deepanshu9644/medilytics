@@ -598,7 +598,8 @@ const activityRes = await axios.get(
             </div>
           </div>
         </section>
-        {/* Footer */}
+      </main>
+       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
@@ -660,7 +661,6 @@ const activityRes = await axios.get(
           </div>
         </div>
       </footer>
-      </main>
     </div>
   );
 }
