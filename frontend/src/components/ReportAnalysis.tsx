@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowLeft, Sparkles, TrendingUp, TrendingDown, Minus, AlertTriangle, Languages,
   Activity,
   Facebook,
@@ -26,6 +27,9 @@ interface ReportAnalysisProps {
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export function ReportAnalysis({ onBack }: ReportAnalysisProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [file, setFile] = useState<File | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
