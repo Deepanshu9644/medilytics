@@ -215,35 +215,6 @@ const handleAnalyze = async () => {
                 </SelectTrigger>
                 <SelectContent className="bg-white dark:bg-gray-800 max-h-60">
                   <SelectItem value="en">English</SelectItem>
-                  <SelectItem value="es">Spanish (Español)</SelectItem>
-                  <SelectItem value="fr">French (Français)</SelectItem>
-                  <SelectItem value="de">German (Deutsch)</SelectItem>
-                  <SelectItem value="it">Italian (Italiano)</SelectItem>
-                  <SelectItem value="pt">Portuguese (Português)</SelectItem>
-                  <SelectItem value="ru">Russian (Русский)</SelectItem>
-                  <SelectItem value="zh">Chinese (中文)</SelectItem>
-                  <SelectItem value="ja">Japanese (日本語)</SelectItem>
-                  <SelectItem value="ko">Korean (한국어)</SelectItem>
-                  <SelectItem value="ar">Arabic (العربية)</SelectItem>
-                  <SelectItem value="hindi">Hindi (हिन्दी)</SelectItem>
-                  <SelectItem value="bn">Bengali (বাংলা)</SelectItem>
-                  <SelectItem value="ur">Urdu (اردو)</SelectItem>
-                  <SelectItem value="ta">Tamil (தமிழ்)</SelectItem>
-                  <SelectItem value="te">Telugu (తెలుగు)</SelectItem>
-                  <SelectItem value="mr">Marathi (मराठी)</SelectItem>
-                  <SelectItem value="gu">Gujarati (ગુજરાતી)</SelectItem>
-                  <SelectItem value="kn">Kannada (ಕನ್ನಡ)</SelectItem>
-                  <SelectItem value="ml">Malayalam (മലയാളം)</SelectItem>
-                  <SelectItem value="pa">Punjabi (ਪੰਜਾਬੀ)</SelectItem>
-                  <SelectItem value="tr">Turkish (Türkçe)</SelectItem>
-                  <SelectItem value="nl">Dutch (Nederlands)</SelectItem>
-                  <SelectItem value="pl">Polish (Polski)</SelectItem>
-                  <SelectItem value="vi">Vietnamese (Tiếng Việt)</SelectItem>
-                  <SelectItem value="th">Thai (ไทย)</SelectItem>
-                  <SelectItem value="id">Indonesian (Bahasa Indonesia)</SelectItem>
-                  <SelectItem value="ms">Malay (Bahasa Melayu)</SelectItem>
-                  <SelectItem value="fa">Persian (فارسی)</SelectItem>
-                  <SelectItem value="he">Hebrew (עברית)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
