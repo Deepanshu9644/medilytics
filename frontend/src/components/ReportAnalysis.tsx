@@ -184,6 +184,7 @@ const handleAnalyze = async () => {
                 </SelectTrigger>
                 <SelectContent className="bg-white dark:bg-gray-800 max-h-60">
                   <SelectItem value="en">English</SelectItem>
+                  <SelectItem value="hindi">Hindi (हिन्दी)</SelectItem>
                   <SelectItem value="es">Spanish (Español)</SelectItem>
                   <SelectItem value="fr">French (Français)</SelectItem>
                   <SelectItem value="de">German (Deutsch)</SelectItem>
@@ -194,7 +195,6 @@ const handleAnalyze = async () => {
                   <SelectItem value="ja">Japanese (日本語)</SelectItem>
                   <SelectItem value="ko">Korean (한국어)</SelectItem>
                   <SelectItem value="ar">Arabic (العربية)</SelectItem>
-                  <SelectItem value="hindi">Hindi (हिन्दी)</SelectItem>
                   <SelectItem value="bn">Bengali (বাংলা)</SelectItem>
                   <SelectItem value="ur">Urdu (اردو)</SelectItem>
                   <SelectItem value="ta">Tamil (தமிழ்)</SelectItem>
