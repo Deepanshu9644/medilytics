@@ -14,7 +14,11 @@ import {
   Brain,
   Activity,
   BarChart3,
-  FolderOpen
+  FolderOpen,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin
 } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import {
@@ -95,7 +99,15 @@ const activityRes = await axios.get(
     .toUpperCase()
     .slice(0, 2);
 
+const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
+
+  
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Fixed Header */}
@@ -206,7 +218,7 @@ const activityRes = await axios.get(
         </section>
 
         {/* Main Analysis Services */}
-        <section className="py-16 container mx-auto px-6">
+        <section id="services" className="py-16 container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl text-gray-900 dark:text-white mb-4">
               Choose Your Analysis Type
@@ -418,7 +430,7 @@ const activityRes = await axios.get(
         </section>
 
         {/* Features Highlight Section */}
-        <section className="py-16 bg-white dark:bg-gray-800">
+        <section id="features" className="py-16 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-4xl text-gray-900 dark:text-white mb-4">
@@ -474,7 +486,7 @@ const activityRes = await axios.get(
         </section>
 
         {/* How It Works Section */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800">
+        <section id="how-it-works" className="py-16 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800">
           <div className="container mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="text-4xl text-gray-900 dark:text-white mb-4">
@@ -599,6 +611,68 @@ const activityRes = await axios.get(
           </div>
         </section>
       </main>
+      {/* Footer Starts Here */}
+      <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                  <Activity className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-2xl font-bold">Medilytics</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                AI-powered medical analytics platform for smarter healthcare decisions.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="mb-4 font-semibold">Product</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><button onClick={() => scrollToSection('features')} className="hover:text-blue-400 transition-colors">Features</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="hover:text-blue-400 transition-colors">Services</button></li>
+                <li><button onClick={() => scrollToSection('how-it-works')} className="hover:text-blue-400 transition-colors">How It Works</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="mb-4 font-semibold">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li className="hover:text-blue-400 cursor-pointer transition-colors">About Us</li>
+                <li className="hover:text-blue-400 cursor-pointer transition-colors">Privacy Policy</li>
+                <li className="hover:text-blue-400 cursor-pointer transition-colors">Terms of Service</li>
+                <li><button onClick={() => scrollToSection()} className="hover:text-blue-400 transition-colors">Contact</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="mb-4 font-semibold">Follow Us</h4>
+              <div className="flex gap-3">
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-gray-400 text-sm">
+              © 2025 Medilytics. All rights reserved. Built with AI for better healthcare.
+            </p>
+          </div>
+        </div>
+      </footer>
+      {/* Footer Ends Here */}
     </div>
   );
 }
