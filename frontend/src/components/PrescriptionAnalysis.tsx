@@ -1,5 +1,10 @@
 import { useState } from 'react';
-import { ArrowLeft, Sparkles, Clock, Pill, AlertCircle, Languages } from 'lucide-react';
+import { ArrowLeft, Sparkles, Clock, Pill, AlertCircle, Languages,
+  Activity,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin } from 'lucide-react';
 import { Button } from './ui/button';
 import { FileUpload } from './FileUpload';
 import { Card } from './ui/card';
@@ -394,6 +399,58 @@ const handleAnalyze = async () => {
           )}
         </div>
       </div>
+      {/* Footer - Updated to Force Left/Right Alignment */}
+      <footer className="relative z-10 backdrop-blur-xl bg-black/40 border-t border-white/10 text-white py-12 mt-auto">
+        <div className="container mx-auto px-6">
+          
+          {/* Changed 'flex-col md:flex-row' to 'flex-row' to force horizontal layout */}
+          {/* Added 'flex-wrap' so it doesn't break on extremely small phones */}
+          <div className="w-full flex flex-row flex-wrap justify-between items-start gap-6 mb-8">
+            
+            {/* Left Side: Brand & Description */}
+            {/* Removed 'items-center text-center' to force left alignment */}
+            <div className="flex flex-col items-start text-left max-w-md">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
+                  <Activity className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-2xl font-bold tracking-tight">Medilytics</span>
+              </div>
+              <p className="text-white/60 text-sm">
+                Advanced AI-powered medical report analysis. 
+                Providing insights on test parameters and health trends instantly.
+              </p>
+            </div>
+
+            {/* Right Side: Social Media Icons */}
+            {/* Removed 'items-center' and 'md:' prefixes to force right alignment */}
+            <div className="flex flex-col items-end">
+              <h4 className="text-sm font-semibold text-white/90 mb-4 uppercase tracking-wider text-mid">Connect With Us</h4>
+              <div className="flex gap-3">
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-orange-600 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-orange-600 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-orange-600 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-white/10 hover:bg-orange-600 backdrop-blur-md rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 border border-white/10">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright Section */}
+          <div className="border-t border-white/10 pt-8 text-center">
+            <p className="text-white/40 text-sm">
+              © 2025 Medilytics. All rights reserved. reliable medical analysis powered by AI.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
