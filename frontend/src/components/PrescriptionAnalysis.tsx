@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowLeft, Sparkles, Clock, Pill, AlertCircle, Languages,
   Activity,
   Facebook,
@@ -25,6 +26,9 @@ interface PrescriptionAnalysisProps {
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export function PrescriptionAnalysis({ onBack }: PrescriptionAnalysisProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [file, setFile] = useState<File | null>(null);
   const [selectedLanguage, setSelectedLanguage] = useState('en');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
