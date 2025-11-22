@@ -598,6 +598,68 @@ const activityRes = await axios.get(
             </div>
           </div>
         </section>
+        {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
+                  <Activity className="w-6 h-6 text-white" />
+                </div>
+                <span className="text-2xl">Medilytics</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                AI-powered medical analytics platform for smarter healthcare decisions.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="mb-4">Product</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li><button onClick={() => scrollToSection('features')} className="hover:text-blue-400">Features</button></li>
+                <li><button onClick={() => scrollToSection('services')} className="hover:text-blue-400">Services</button></li>
+                <li><button onClick={() => scrollToSection('how-it-works')} className="hover:text-blue-400">How It Works</button></li>
+                <li><button onClick={onGetStarted} className="hover:text-blue-400">Get Started</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="mb-4">Company</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li className="hover:text-blue-400 cursor-pointer">About Us</li>
+                <li className="hover:text-blue-400 cursor-pointer">Privacy Policy</li>
+                <li className="hover:text-blue-400 cursor-pointer">Terms of Service</li>
+                <li><button onClick={() => scrollToSection('contact')} className="hover:text-blue-400">Contact</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="mb-4">Follow Us</h4>
+              <div className="flex gap-3">
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 text-center">
+            <p className="text-gray-400 text-sm">
+              © 2025 Medilytics. All rights reserved. Built with AI for better healthcare.
+            </p>
+          </div>
+        </div>
+      </footer>
       </main>
     </div>
   );
