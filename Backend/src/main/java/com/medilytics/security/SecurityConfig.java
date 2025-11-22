@@ -30,21 +30,37 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .cors().and()
-                .authorizeHttpRequests()
-                .requestMatchers(
-                        "/api/auth/login",
-                        "/api/auth/register",
-                        "/api/auth/google-login"
-                ).permitAll()
-                // .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .addFilterBefore(multiAuthTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        // http
+        //         .csrf().disable()
+        //         .cors().and()
+        //         .authorizeHttpRequests()
+        //         .requestMatchers(
+        //                 "/api/auth/login",
+        //                 "/api/auth/register",
+        //                 "/api/auth/google-login"
+        //         ).permitAll()
+        //         // .requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+        //         .anyRequest().authenticated()
+        //         .and()
+        //         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        //         .and()
+        //         .addFilterBefore(multiAuthTokenFilter, UsernamePasswordAuthenticationFilter.class);
+       http
+    .csrf().disable()
+    .cors().and()
+    .authorizeHttpRequests()
+        .requestMatchers(
+            "/api/auth/login",
+            "/api/auth/register",
+            "/api/auth/google-login",
+            "/health",              // ✅ ADD THIS
+            "/actuator/health"      // ✅ ADD THIS (optional)
+        ).permitAll()
+        .anyRequest().authenticated()
+    .and()
+    .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+    .and()
+    .addFilterBefore(multiAuthTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
