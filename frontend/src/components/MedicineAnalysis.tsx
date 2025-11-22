@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ArrowLeft, Sparkles, AlertCircle, CheckCircle2, Languages,
   Activity,
@@ -27,6 +28,9 @@ interface MedicineAnalysisProps {
 const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 export function MedicineAnalysis({ onBack }: MedicineAnalysisProps) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [file, setFile] = useState<File | null>(null);
   const [medicineName, setMedicineName] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState('en');
