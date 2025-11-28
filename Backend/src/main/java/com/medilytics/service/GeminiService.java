@@ -124,20 +124,20 @@ Extracted Prescription Text:
         RestTemplate restTemplate = new RestTemplate();
 
         String prompt = "I want detailed information about the medicine. \"" + medicineName + "\" in the following structured format. Respond strictly using these headings:\n\n" +
-                "**medicineName:**\n" +
-                "**genericName:**\n" +
-                "**category:**\n" +
-                "**manufacturer:**\n" +
-                "**uses:**\n" +
-                "**dosage:**\n" +
-                "**sideEffects:**\n" +
-                "**precautions:**\n" +
-                "**interactions:**\n" +
-                "**storage:**\n" +
+                "**medicineName:**\n\n" +
+                "**genericName:**\n\n" +
+                "**category:**\n\n" +
+                "**manufacturer:**\n\n" +
+                "**uses:**\n\n" +
+                "**dosage:**\n\n" +
+                "**sideEffects:**\n\n" +
+                "**precautions:**\n\n" +
+                "**interactions:**\n\n" +
+                "**storage:**\n\n" +
                 "**confidenceScore:**\n\n" +
                 "Keep explanations concise and in bullet points where applicable. Respond in " + language + ". " +
                 "Do not add extra text or headings."+"Respond in " + language + ". " +
-        "Do not add extra text or headings.";
+        "Do not write anything outside this structure. Respond in bullet points where possible. \n\n";
 
 
 
