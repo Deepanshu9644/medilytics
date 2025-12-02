@@ -1,78 +1,74 @@
 🏥 Medilytics — AI-Powered Medicine, Report & Prescription Analyzer
 
-AI-powered healthcare analysis system that analyzes medicines, medical reports, doctor prescriptions, and documents using Google Gemini API.
-Fully integrated with a modern frontend + secure backend + document storage.
+AI-powered healthcare system that analyzes medicines, lab reports, prescriptions, and documents using Google Gemini API.
+Fully integrated with a modern frontend, secure backend, and document storage.
 
 🔗 Live Demo
-🌐 Live Website
 
-👉 medilytics.vercel.app
+🌐 Live Website:
+👉 https://medilytics.vercel.app
 
-🚀 Core Features
-🔍 1. Medicine Analysis (AI Powered)
+🚀 Features
+📁 Upload & Manage Medical Documents
 
-Purpose
+Upload lab reports, prescriptions, and more
 
-Dosage
+View titles, dates, and descriptions
 
-Interactions
+🧠 AI-Powered Report Analysis
 
-Side effects
+Extracts and analyzes key health indicators from PDFs
 
-Warnings
+Suggests possible health issues & recommended specialists
 
-🩺 2. Medical Report Analysis
+Powered by OpenAI / Gemini API
 
-Blood reports
+💊 Medicine & Prescription Analysis
 
-Pathology
+Reads prescriptions and extracts medicine information
 
-Scans
+Explains usage, purpose, and dosage meaning
 
-AI summary + critical markers
+🌐 User Dashboard
 
-📝 3. Prescription Analysis
+Fully responsive UI
 
-Handwritten / printed
+Built with React + Tailwind CSS
 
-Extracted medicines
+Interactive views & animations
 
-Dosage
+🛠️ Tech Stack
+Frontend
 
-Doctor instructions
+- React.js
 
-📄 4. Document Upload & Storage
+- Tailwind CSS
 
-Upload PDFs, images
+- Framer Motion
 
-Store securely
+- Axios
 
-Re-analyze anytime
-
-🛠 Tech Stack
-Backend (Java Spring Boot)
+Backend
 
 Spring Boot
 
+REST APIs
+
 MySQL
 
-Gemini API
+Gemini / OpenAI Integration
 
-Lombok
+Other Tools
 
-File Storage
+Apache PDFBox
 
-Maven
+Tesseract OCR
 
-Frontend (React / Next.js)
+JWT Authentication
 
-React / Next.js
+Git & GitHub Version Control
 
-Tailwind CSS
-
-Axios
-
-File uploader
+File Uploader
 
 📁 Folder Structure
 Medilytics/
@@ -93,7 +89,7 @@ Medilytics/
     └── package.json
 
 ⚙️ Backend Setup
-1. Configure database & Gemini key
+1. Configure Database & Gemini Key
 spring.datasource.url=jdbc:mysql://localhost:3306/medilytics
 spring.datasource.username=root
 spring.datasource.password=yourpassword
@@ -105,26 +101,9 @@ file.upload-dir=uploads/
 2. Build
 mvn clean package -DskipTests
 
-
-
-4. Run
+3. Run Backend
 java -jar target/Medilytics-0.0.1-SNAPSHOT.jar
 
 
-Backend:
+Backend URL:
 👉 http://localhost:8080
-
-5. Screenshots
-
-   ![Cover Page](https://github.com/user-attachments/assets/4001d228-f825-44c5-b685-fec0e3d767b7)
-   ![login Page](https://github.com/user-attachments/assets/9b650b8b-2788-4baa-bbd9-df41b320d17f)
-   ![Dashboard](https://github.com/user-attachments/assets/6b72f0a8-cd0a-4066-807a-1a32494a6ddb)
-   ![D2](https://github.com/user-attachments/assets/35c4087a-0350-4f32-8f74-28a6fde218d0)
-   ![Medicine](https://github.com/user-attachments/assets/03bab686-da29-4d50-9d1e-8857d0bb12bc)
-   ![Report](https://github.com/user-attachments/assets/bb59bbee-6b1a-45ec-a43f-cf88b5cc09be)
-   ![R2](https://github.com/user-attachments/assets/cfc9fff3-dea6-48f4-bb91-3c5c8321c2e5)
-   ![R3](https://github.com/user-attachments/assets/fd361c49-565c-4a1f-a70d-236e4bdc33f5)
-   ![recent](https://github.com/user-attachments/assets/37b99c78-adbc-4dfc-ba49-3359db170e22)
-   ![upload](https://github.com/user-attachments/assets/62897258-f74f-4499-b03a-a0f3dce8f9f4)
-
-
