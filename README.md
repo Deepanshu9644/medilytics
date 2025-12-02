@@ -11,31 +11,31 @@ Fully integrated with a modern frontend, secure backend, and document storage.
 🚀 Features
 📁 Upload & Manage Medical Documents
 
-Upload lab reports, prescriptions, and more
+- Upload lab reports, prescriptions, and more
 
-View titles, dates, and descriptions
+- View titles, dates, and descriptions
 
 🧠 AI-Powered Report Analysis
 
-Extracts and analyzes key health indicators from PDFs
+- Extracts and analyzes key health indicators from PDFs
 
-Suggests possible health issues & recommended specialists
+- Suggests possible health issues & recommended specialists
 
-Powered by OpenAI / Gemini API
+- Powered by OpenAI / Gemini API
 
 💊 Medicine & Prescription Analysis
 
-Reads prescriptions and extracts medicine information
+- Reads prescriptions and extracts medicine information
 
-Explains usage, purpose, and dosage meaning
+- Explains usage, purpose, and dosage meaning
 
 🌐 User Dashboard
 
-Fully responsive UI
+- Fully responsive UI
 
-Built with React + Tailwind CSS
+- Built with React + Tailwind CSS
 
-Interactive views & animations
+- Interactive views & animations
 
 🛠️ Tech Stack
 Frontend
@@ -50,21 +50,21 @@ Frontend
 
 Backend
 
-Spring Boot
+- Spring Boot
 
-REST APIs
+- REST APIs
 
-MySQL
+- MySQL
 
-Gemini / OpenAI Integration
+- Gemini / OpenAI Integration
 
 Other Tools
 
-Apache PDFBox
+- Apache PDFBox
 
-Tesseract OCR
+- Tesseract OCR
 
-JWT Authentication
+- JWT Authentication
 
 Git & GitHub Version Control
 
