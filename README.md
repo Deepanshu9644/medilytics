@@ -74,19 +74,20 @@ File Uploader
 Medilytics/
 │
 ├── Backend/
-│   ├── controller/
-│   ├── service/
-│   ├── model/
-│   ├── repository/
-│   ├── config/
-│   ├── storage/
-│   ├── resources/application.properties
-│   └── pom.xml
+│ ├── controller/
+│ ├── service/
+│ ├── model/
+│ ├── repository/
+│ ├── config/
+│ ├── storage/
+│ ├── resources/
+│ │ └── application.properties
+│ └── pom.xml
 │
 └── Frontend/
-    ├── src/
-    ├── public/
-    └── package.json
+├── src/
+├── public/
+└── package.json
 
 ⚙️ Backend Setup
 1. Configure Database & Gemini Key
