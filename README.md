@@ -116,8 +116,8 @@ Backend:
 
 5. Screenshots
 
-   ![Cover Page] (https://github.com/user-attachments/assets/4001d228-f825-44c5-b685-fec0e3d767b7)
-   ![login Page] (https://github.com/user-attachments/assets/9b650b8b-2788-4baa-bbd9-df41b320d17f)
+   ![Cover Page](https://github.com/user-attachments/assets/4001d228-f825-44c5-b685-fec0e3d767b7)
+   ![login Page](https://github.com/user-attachments/assets/9b650b8b-2788-4baa-bbd9-df41b320d17f)
    ![Dashboard] (https://github.com/user-attachments/assets/6b72f0a8-cd0a-4066-807a-1a32494a6ddb)
    ![D2] (https://github.com/user-attachments/assets/35c4087a-0350-4f32-8f74-28a6fde218d0)
    ![Medicine] (https://github.com/user-attachments/assets/03bab686-da29-4d50-9d1e-8857d0bb12bc)
