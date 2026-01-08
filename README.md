@@ -44,9 +44,6 @@ Frontend
 
 - Tailwind CSS
 
-- Framer Motion
-
-- Axios
 
 Backend
 
@@ -56,11 +53,11 @@ Backend
 
 - MySQL
 
-- Gemini / OpenAI Integration
+- Gemini  Integration
 
 Other Tools
 
-- Apache PDFBox
+-  PDFBox
 
 - Tesseract OCR
 
