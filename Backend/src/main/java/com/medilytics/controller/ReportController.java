@@ -115,55 +115,55 @@ String filePath = savedFile.getAbsolutePath();
     }
 
     // Get All Reports by Username
-    @GetMapping("/user/{username}")
-    public ResponseEntity<List<Report>> getReportsByUser(@PathVariable String username) {
-        List<Report> reports = reportService.getReportsByUser(username);
-        return ResponseEntity.ok(reports);
-    }
+    // @GetMapping("/user/{username}")
+    // public ResponseEntity<List<Report>> getReportsByUser(@PathVariable String username) {
+    //     List<Report> reports = reportService.getReportsByUser(username);
+    //     return ResponseEntity.ok(reports);
+    // }
 
-    // Download Report by ID
-    @GetMapping("/download/{id}")
-    public ResponseEntity<Resource> downloadReport(@PathVariable Long id) {
-        Optional<Report> reportOpt = reportService.getReportById(id);
+    // // Download Report by ID
+    // @GetMapping("/download/{id}")
+    // public ResponseEntity<Resource> downloadReport(@PathVariable Long id) {
+    //     Optional<Report> reportOpt = reportService.getReportById(id);
 
-        if (reportOpt.isPresent()) {
-            Report report = reportOpt.get();
-            File file = new File(report.getUploadPath());
-            Resource resource = new FileSystemResource(file);
+    //     if (reportOpt.isPresent()) {
+    //         Report report = reportOpt.get();
+    //         File file = new File(report.getUploadPath());
+    //         Resource resource = new FileSystemResource(file);
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + file.getName());
+    //         HttpHeaders headers = new HttpHeaders();
+    //         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + file.getName());
 
-            return ResponseEntity.ok()
-                    .headers(headers)
-                    .contentLength(file.length())
-                    .contentType(MediaType.APPLICATION_OCTET_STREAM)
-                    .body(resource);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    //         return ResponseEntity.ok()
+    //                 .headers(headers)
+    //                 .contentLength(file.length())
+    //                 .contentType(MediaType.APPLICATION_OCTET_STREAM)
+    //                 .body(resource);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
 
-    // Delete Report by ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteReport(@PathVariable Long id) {
-        Optional<Report> reportOpt = reportService.getReportById(id);
+    // // Delete Report by ID
+    // @DeleteMapping("/{id}")
+    // public ResponseEntity<String> deleteReport(@PathVariable Long id) {
+    //     Optional<Report> reportOpt = reportService.getReportById(id);
 
-        if (reportOpt.isPresent()) {
-            Report report = reportOpt.get();
-            File file = new File(report.getUploadPath());
+    //     if (reportOpt.isPresent()) {
+    //         Report report = reportOpt.get();
+    //         File file = new File(report.getUploadPath());
 
-            // Delete file from server
-            if (file.exists()) {
-                file.delete();
-            }
+    //         // Delete file from server
+    //         if (file.exists()) {
+    //             file.delete();
+    //         }
 
-            // Delete from database
-            reportService.deleteReport(id);
+    //         // Delete from database
+    //         reportService.deleteReport(id);
 
-            return ResponseEntity.ok("Report deleted successfully.");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Report not found.");
-        }
-    }
+    //         return ResponseEntity.ok("Report deleted successfully.");
+    //     } else {
+    //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Report not found.");
+    //     }
+    // }
 }
