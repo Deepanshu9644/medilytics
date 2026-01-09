@@ -56,8 +56,7 @@ public class AuthController {
             String email = decodedToken.getEmail();
             String name = decodedToken.getName();
 
-            // TODO: You can save user in DB if new
-            // For demo, return user info
+            
             return ResponseEntity.ok(Map.of(
                     "uid", uid,
                     "email", email,
