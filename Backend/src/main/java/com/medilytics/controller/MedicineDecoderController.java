@@ -20,33 +20,7 @@ public class MedicineDecoderController {
     @Autowired
     private OCRService ocrService;
 
-    // POST endpoint to decode medicine
-    // @PostMapping(value = "/decode", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    // public ResponseEntity<Map<String, String>> decodeMedicine(
-    //         @RequestParam(required = false) String medicineName,
-    //         @RequestParam(required = false) String language,
-    //         @RequestParam(required = false) MultipartFile image) {
-
-    //     if ((medicineName == null || medicineName.isEmpty()) && (image == null || image.isEmpty())) {
-    //         return ResponseEntity.badRequest().body(Map.of("error", "Provide either medicine name or image."));
-    //     }
-
-    //     // If image is provided, perform OCR to extract medicine name
-    //     if (medicineName == null || medicineName.isEmpty()) {
-    //         medicineName = ocrService.extractMedicineName(image);
-    //         System.out.println(medicineName);
-    //         if (medicineName == null || medicineName.isEmpty()) {
-    //             return ResponseEntity.badRequest().body(Map.of("error", "Could not extract medicine name from image."));
-    //         }
-    //     }
-
-    //     Map<String, String> aiResponse = geminiService.getMedicineDetails(medicineName, language);
-    //     if (aiResponse.isEmpty()) {
-    //         return ResponseEntity.status(500).body(Map.of("error", "Failed to parse AI response."));
-    //     }
-
-    //     return ResponseEntity.ok(aiResponse);
-    // }
+    
 
 
     @PostMapping(value = "/decode", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
