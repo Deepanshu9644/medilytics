@@ -20,6 +20,7 @@ public class GeminiService {
 
     public GeminiService() {
         this.API_KEY = System.getenv("GEMINI_API_KEY");
+       // this.API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
         this.API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + API_KEY;
     }
 
