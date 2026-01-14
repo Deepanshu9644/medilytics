@@ -14,8 +14,12 @@ import java.util.Map;
 @RequestMapping("/api/medicine")
 public class MedicineDecoderController {
 
+    System.out.println("Hello!");
+
     @Autowired
     private GeminiService geminiService;
+
+    System.out.println("Hello2!");
 
     @Autowired
     private OCRService ocrService;
@@ -28,6 +32,7 @@ public ResponseEntity<?> decode(
         @RequestParam(required = false) String medicineName,
         @RequestParam(required = false) String language,
         @RequestParam(required = false) MultipartFile image) {
+        System.out.println("Hello!");
 
     System.out.println("Image received: " + (image != null ? image.getOriginalFilename() : "NULL"));
 
