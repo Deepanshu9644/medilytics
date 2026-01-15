@@ -124,7 +124,7 @@ Extracted Prescription Text:
     public Map<String, String> getMedicineDetails(String medicineName, String language) {
         RestTemplate restTemplate = new RestTemplate();
 
-        System.out.println(API_URL);
+        //System.out.println(API_URL);
         String prompt = "I want detailed information about the medicine. \"" + medicineName + "\" in the following structured format. Respond strictly using these headings:\n\n" +
                 "**medicineName:**\n\n" +
                 "**genericName:**\n\n" +
