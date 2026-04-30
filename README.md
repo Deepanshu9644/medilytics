@@ -1,6 +1,7 @@
 🏥 Medilytics — AI-Powered Medicine, Report & Prescription Analyzer
 
 AI-powered healthcare system that analyzes medicines, lab reports, prescriptions, and documents using Google Gemini API.
+It also tells us the nearest and best laboraratories to you
 Fully integrated with a modern frontend, secure backend, and document storage.
 
 🔗 Live Demo
